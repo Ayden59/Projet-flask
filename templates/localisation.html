@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <!-- Leaflet (carte) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
@@ -15,7 +14,6 @@
 <body>
 
     <header>
-        <h1>Mon portfolio</h1>
         <nav>
             <a href="/">Accueil</a>
             <a href="/about">À propos</a>
@@ -35,9 +33,8 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script>
-        // Coordonnées (ex: Bergues) -> modifie si tu veux
-        const lat = 50.968;
-        const lon = 2.433;
+        const lat = 50.953854040430514;
+        const lon = 1.8791418671815179;
 
         const map = L.map('map').setView([lat, lon], 13);
 
@@ -47,7 +44,7 @@
         }).addTo(map);
 
         L.marker([lat, lon]).addTo(map)
-            .bindPopup("Zone d’exemple 📍")
+            .bindPopup("FCU Côte d'Opale 📍")
             .openPopup();
     </script>
 

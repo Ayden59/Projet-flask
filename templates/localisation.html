@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Localisation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Leaflet (carte) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Mon portfolio</h1>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/about">À propos</a>
+            <a href="/contact">Contact</a>
+            <a href="/localisation">Localisation</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Ma localisation</h2>
+        <p>Voici une carte avec un repère.</p>
+
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // Coordonnées (ex: Bergues) -> modifie si tu veux
+        const lat = 50.968;
+        const lon = 2.433;
+
+        const map = L.map('map').setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup("Zone d’exemple 📍")
+            .openPopup();
+    </script>
+
+</body>
+
+</html>
